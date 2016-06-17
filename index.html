@@ -1,27 +1,36 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>
-			Slots 3 Business-Logic Prototype 201606171008
-		</title>
-		<script>
-			function onGetClick()
-			{
-				var stringNumberResult = Math.floor(Math.random() * 10.0).toString();
-				document.getElementById('resultNumber').innerHTML = stringNumberResult;
-				document.getElementById('resultText').innerHTML = 
-					(stringNumberResult === document.getElementById('guessNumber').value)
-						? ' - you won!'
-						: ' - you lost(';
-			}
-		</script>
-	</head>
-	<body>
-		Guess the number from 0 to 10:
-		<input id="guessNumber" type="text"></input>
-		<button onclick="onGetClick();">Get the right number!</button>
-		<span id="resultNumber"></span>
-		<span id="resultText"></span>
-	</body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+        Slots 3 Business-Logic Prototype 201606171008
+    </title>
+    <script src="public/jquery-3.0.0.min.js"></script>
+    <script>
+        var server = location.protocol + '//' + location.hostname + ':3000';
+
+        function onGetClick() {
+            if ($('#guessNumber').val())
+
+                $.get(server + "/LobbyBonus")
+                        .done(function (stringNumberResult) {
+
+                            console.log(stringNumberResult);
+
+                            $('#resultNumber').text(stringNumberResult);
+                            $('#resultText').text(
+                                    (stringNumberResult === $('#guessNumber').val() ? ' - you won!' : ' - you lost(')
+                            );
+                        })
+        }
+
+    </script>
+</head>
+<body>
+    Guess the number from 0 to 10:
+    <input id="guessNumber" type="text"/>
+    <button onclick="onGetClick();">Get the right number!</button>
+    <span id="resultNumber">&nbsp;</span>
+    <span id="resultText">&nbsp;</span>
+</body>
 </html>

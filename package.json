@@ -1,0 +1,25 @@
+{
+  "name": "slots3-techno-demo",
+  "version": "0.0.1",
+  "description": "Демонстрация того, как должна выглядеть разработка в рамках концепции PDD.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocksPro/Slots3TechnoDemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RocksPro/Slots3TechnoDemo/issues"
+  },
+  "homepage": "https://github.com/RocksPro/Slots3TechnoDemo#readme",
+  "dependencies": {
+    "koa": "1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "5.4.0"
+  }
+}
